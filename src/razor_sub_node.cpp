@@ -77,8 +77,8 @@ int main(int argc, char** argv) {
 
     ros::init(argc, argv, "razor_sub");
     ros::NodeHandle nh;
-    ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu", 1000, imu_callback);  // Razor IMU
-    // ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu/data", 1000, imu_callback);     // Adis IMU
+    // ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu", 1000, imu_callback);  // Razor IMU
+    ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu/data", 1000, imu_callback);     // Adis IMU
     ros::spin();
 
     return 0;
