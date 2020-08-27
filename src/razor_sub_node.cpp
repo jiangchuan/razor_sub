@@ -54,7 +54,7 @@ void imu_callback(const sensor_msgs::Imu::ConstPtr& imu_msg) {
     }
 
     double imu_t = imu_msg->header.stamp.sec * 1.0 + imu_msg->header.stamp.nsec / 1000000000.0;
-    imustream << std::setprecision(18) << imu_t << ",";
+    imustream << std::setprecision(16) << imu_t << ",";
     imustream << std::setprecision(4) << imu_msg->orientation.x << ",";
     imustream << std::setprecision(4) << imu_msg->orientation.y << ",";
     imustream << std::setprecision(4) << imu_msg->orientation.z << ",";
@@ -77,8 +77,8 @@ int main(int argc, char** argv) {
 
     ros::init(argc, argv, "razor_sub");
     ros::NodeHandle nh;
-    ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu", 100, imu_callback);  // Razor IMU
-    // ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu/data", 100, imu_callback);     // Adis IMU
+    ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu", 1000, imu_callback);  // Razor IMU
+    // ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu/data", 1000, imu_callback);     // Adis IMU
     ros::spin();
 
     return 0;
