@@ -1,5 +1,5 @@
 <launch>
     <!-- <include file="$(find razor_imu_9dof)/launch/razor-pub.launch" /> -->
-    <include file="$(find adi_driver)/launch/adis16470.launch" />
+    <!-- <include file="$(find adi_driver)/launch/adis16470.launch" /> -->
     <node pkg="razor_sub" type="razor_sub_node" name="razor_sub_node" output="screen" />
 </launch>

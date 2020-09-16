@@ -65,7 +65,7 @@ void imu_callback(const sensor_msgs::Imu::ConstPtr& imu_msg) {
 int main(int argc, char** argv) {
     std::string root_dir = "/home/ubuntu/livox_data/";
     // std::string root_dir = "/home/jiangchuan/livox_data/";
-    imu_dir = root_dir + "imu/";
+    imu_dir = root_dir + "imu9/";
 
     time_t now = get_time();
     std::string time_str = get_time_str();
@@ -77,8 +77,8 @@ int main(int argc, char** argv) {
 
     ros::init(argc, argv, "razor_sub");
     ros::NodeHandle nh;
-    // ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu", 1000, imu_callback);  // Razor IMU
-    ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu/data", 1000, imu_callback);     // Adis IMU
+    ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu", 1000, imu_callback);  // Razor IMU
+    // ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("imu/data", 1000, imu_callback);     // Adis IMU
     ros::spin();
 
     return 0;
